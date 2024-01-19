@@ -19,31 +19,22 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       global.opts['autoread'] = isEnable
       break
-   case 'pmblocker':
-     isAll = true
-     if (!isROwner) {
-     global.dfail('rowner', m, conn)
-     throw false
-     }
-     bot.pmblocker = isEnable
-     break	  
-   case 'autobio':
-     isAll = true
-     if (!isROwner) {
-     global.dfail('rowner', m, conn)
-     throw false
-     }
-     bot.autoBio = isEnable
-     break
-   case 'chatbot':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.chatbot = isEnable
-      break
+      case 'pmblocker':
+isAll = true
+if (!isROwner) {
+global.dfail('rowner', m, conn)
+throw false
+}
+bot.pmblocker = isEnable
+break	  
+case 'autobio':
+  isAll = true
+  if (!isROwner) {
+  global.dfail('rowner', m, conn)
+  throw false
+  }
+  bot.autoBio = isEnable
+  break
     case 'pconly':
     case 'privateonly':
       isAll = true
@@ -72,27 +63,12 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       global.opts['swonly'] = isEnable
       break
     default:
-      if (!/[01]/.test(command)) return m.reply(`◈──『 *ADMIN*』───⳹
-➬ welcome
-➬ antilink
-➬ nsfw
-➬ autosticker
-➬ antispam
-➬ antitoxic
-╰──────────⳹ 
-◈──『 *USERS*』───⳹
-➬ autolevelup
-➬ chatbot 
-╰──────────⳹
-◈──『 *OWNER*』───⳹
-➬ onlydm
-➬ grouponly
-➬ autotype
-➬ autobio
-╰──────────⳹
-*📌 Example :*
-*${usedPrefix}on* welcome
-*${usedPrefix}off* welcome`.trim())
+      if (!/[01]/.test(command)) return m.reply(`
+List option: welcome | delete | public | antilink | antidelete | antitoxic | autolevelup | detect | document | whitelistmycontacts | restrict | nyimak | autoread | pconly | gconly | swonly
+Contoh:
+${usedPrefix}enable welcome
+${usedPrefix}disable welcome
+`.trim())
       throw false
   }
   m.reply(`
