@@ -2,8 +2,8 @@ let handler = m => m
 handler.all = async function (m) {
 	let setting = global.db.data.settings[this.user.jid]
 	
-  let bot = global.db.data.settings[this.user.jid] || {};
-  if (bot.autoBio) {
+  let chat = global.db.data.settings[this.user.jid] || {};
+  if (chat.autoBio) {
     let _muptime
     if (process.send) {
       process.send('uptime')
