@@ -125,7 +125,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('rowner', m, conn)
         throw false
       }
-  global.opts['autobio'] = isEnable
+  chat.autoBio = isEnable
   break
     case 'pconly':
     case 'privateonly':
