@@ -119,13 +119,13 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       global.opts['autoread'] = isEnable
       break
-      case 'autobio':
-  isAll = true
-  if (!isROwner) {
-  global.dfail('rowner', m, conn)
-  throw false
-  }
-  bot.autoBio = isEnable
+    case 'autobio':
+      isAll = true
+      if (!isROwner) {
+        global.dfail('rowner', m, conn)
+        throw false
+      }
+  global.opts['autobio'] = isEnable
   break
     case 'pconly':
     case 'privateonly':
