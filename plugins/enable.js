@@ -19,23 +19,23 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       global.opts['autoread'] = isEnable
       break
-      case 'pmblocker':
-isAll = true
-if (!isROwner) {
-global.dfail('rowner', m, conn)
-throw false
-}
-bot.pmblocker = isEnable
-break	  
-case 'autobio':
-  isAll = true
-  if (!isROwner) {
-  global.dfail('rowner', m, conn)
-  throw false
-  }
-  bot.autoBio = isEnable
-  break
-  case 'chatbot':
+   case 'pmblocker':
+     isAll = true
+     if (!isROwner) {
+     global.dfail('rowner', m, conn)
+     throw false
+     }
+     bot.pmblocker = isEnable
+     break	  
+   case 'autobio':
+     isAll = true
+     if (!isROwner) {
+     global.dfail('rowner', m, conn)
+     throw false
+     }
+     bot.autoBio = isEnable
+     break
+   case 'chatbot':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
