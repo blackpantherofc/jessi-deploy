@@ -18,14 +18,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.welcome = isEnable
       break
-    case 'autobio':
-  isAll = true
-  if (!isROwner) {
-  global.dfail('rowner', m, conn)
-  throw false
-  }
-  bot.autoBio = isEnable
-  break
     case 'delete':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
@@ -76,6 +68,14 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
            throw false
        }
        chat.anticall = isEnable
+       break
+       case 'autobio':
+       isAll = true
+         if (!isOwner) {
+           global.dfail('rowner', m, conn)
+           throw false
+       }
+       chat.autoBio = isEnable
        break
     case 'antidelete':
       if (m.isGroup) {
